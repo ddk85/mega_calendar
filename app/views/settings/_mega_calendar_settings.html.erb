@@ -81,8 +81,8 @@
       <th>&nbsp;</th>
       <td>
         <select id="settings_allowed_users_groups" value="<%= settings['allowed_users'] %>" name="settings[allowed_users][]" multiple>
-          <% Group.where(["users.lastname IS NOT NULL AND users.lastname <> ''"]).order("users.lastname ASC").each do |g| %>
-            <option value="<%= g.id.to_s %>" <%= (!Setting.plugin_mega_calendar['displayed_users'].blank? && Setting.plugin_mega_calendar['displayed_users'].include?(g.id.to_s) ? 'selected' : '') %>><%= g.lastname.to_s %></option>
+	   <% Group.where(["users.lastname IS NOT NULL AND users.lastname <> ''"]).order("users.lastname ASC").each do |g| %>
+            <option value="<%= g.id.to_s %>" <%= (!Setting.plugin_mega_calendar['allowed_users'].blank? && Setting.plugin_mega_calendar['allowed_users'].include?(g.id.to_s) ? 'selected' : '') %>><%= g.lastname.to_s %></option>
           <% end %>
         </select>
       </td>
